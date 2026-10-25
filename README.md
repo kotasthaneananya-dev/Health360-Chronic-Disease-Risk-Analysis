@@ -37,4 +37,4 @@ This is an observational, self-reported survey analysis. The visualizations show
 - Add further analysis and project documentation.
 
 ## Author
-GitHub: [kot asthaneananya-dev](https://github.com/kot asthaneananya-dev)
+GitHub: [kotasthaneananya-dev](https://github.com/kot asthaneananya-dev)
