@@ -21,6 +21,13 @@ The Tableau Public dashboard links will be added here.
 - Clinical Risk Assessment
 - Lifestyle Behavior
 - Population Health
+## Live Dashboard
+## Live Dashboard
+
+Explore the interactive Health360 dashboard on Tableau Public:
+
+**[View Health360 — Chronic Disease Risk Analysis](https://public.tableau.com/app/profile/ananya.kotasthane/viz/ChronicDiseaseRiskAnalysis/PopulationHealth)**
+
 
 ## Key Performance Indicators
 The analysis includes diabetes prevalence, high blood pressure prevalence, and high cholesterol prevalence.
