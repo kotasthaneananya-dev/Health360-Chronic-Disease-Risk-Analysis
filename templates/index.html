@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health360 | Chronic Disease Risk Analysis</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">Health<span>360</span></a>
+      <span class="tagline">PUBLIC HEALTH ANALYTICS</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">DATA • INSIGHTS • HEALTH</p>
+        <h1>Understanding chronic disease<br /><span>through data.</span></h1>
+        <p class="intro">
+          An interactive exploration of diabetes and its associations with
+          demographic, lifestyle, and health indicators using the 2015 BRFSS
+          health indicators dataset.
+        </p>
+        <a class="primary-button" href="#dashboards">Explore dashboards ↓</a>
+      </section>
+
+      <section class="dashboard-section" id="dashboards">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">INTERACTIVE EXPLORATION</p>
+            <h2>Explore the dashboards</h2>
+          </div>
+          <span class="live-label">● TABLEAU PUBLIC</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Dashboard navigation">
+          {% for dashboard in dashboards %}
+          <a
+            class="dashboard-tab {% if dashboard.id == selected %}active{% endif %}"
+            href="{{ url_for('home', dashboard=dashboard.id) }}"
+          >
+            <span class="tab-number">0{{ loop.index }}</span>
+            {{ dashboard.name }}
+          </a>
+          {% endfor %}
+        </nav>
+
+        {% for dashboard in dashboards %} {% if dashboard.id == selected %}
+        <div class="dashboard-info">
+          <div>
+            <h3>{{ dashboard.name }}</h3>
+            <p>{{ dashboard.description }}</p>
+          </div>
+          <a
+            href="{{ dashboard.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open on Tableau ↗
+          </a>
+        </div>
+
+        <div class="viz-frame">
+          <iframe
+            src="{{ dashboard.url }}"
+            title="{{ dashboard.name }} interactive dashboard"
+            loading="lazy"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+        {% endif %} {% endfor %}
+
+        <p class="embed-note">
+          If the dashboard does not load here, use “Open on Tableau” to view it
+          directly on Tableau Public.
+        </p>
+      </section>
+
+      <section class="about-grid">
+        <article class="info-card">
+          <p class="eyebrow">01 / PROJECT</p>
+          <h3>About Health360</h3>
+          <p>
+            Health360 presents descriptive analysis of diabetes, related health
+            indicators, lifestyle patterns, and healthcare access through
+            interactive visualizations.
+          </p>
+        </article>
+        <article class="info-card">
+          <p class="eyebrow">02 / DATA</p>
+          <h3>Dataset & tools</h3>
+          <p>
+            Data: 2015 Behavioral Risk Factor Surveillance System (BRFSS) health
+            indicators dataset.
+          </p>
+          <p class="tools">Python · Flask · Tableau Public · GitHub</p>
+        </article>
+        <article class="info-card">
+          <p class="eyebrow">03 / INTERPRETATION</p>
+          <h3>Important limitations</h3>
+          <p>
+            Survey responses are self-reported. These charts show associations,
+            not causation, and should not be used as individual medical advice.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>Health360 — Chronic Disease Risk Analysis</span>
+      <span>Built with Flask & Tableau Public</span>
+    </footer>
+  </body>
+</html>
